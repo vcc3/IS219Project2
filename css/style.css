@@ -50,15 +50,21 @@ body {
 }
 
 #prevPhoto {
+  
 	height: 42px;
 	width: 42px;
 }
-
+#prevPhoto:hover {
+  opacity:0.3;
+}
 #nextPhoto {
+  float:right;
 	height: 42px;
 	width: 42px;
 }
-
+#nextPhoto:hover {
+  opacity:0.3;
+ }
 .details p {
 	margin-top: 20px;
 }
@@ -74,7 +80,9 @@ Make it animate nicely. You'll need CSS3 for this*/
 
 /*Add CSS styles to rotate the element 180deg
 Make it animate nicely. You'll need CSS3 for this*/
-.rot180 {}
+.rot180 {
+transform:rotate(180deg);
+}
 
 /*Add CSS styles to rotate the element 270deg
 Make it animate nicely. You'll need CSS3 for this*/
