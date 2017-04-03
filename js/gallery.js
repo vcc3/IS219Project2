@@ -78,8 +78,10 @@ function swapPhoto() {
 	//with a new image from your images array which is loaded 
 	//from the JSON string
   
-	console.log('swap photo');
+	console.log('swapped photo');
+ // show th e 0 indexed photo austrilia
    $('#photo').attr("src",mImages[mCurrentIndex].imgPath);
+   //assign the details to the text with text replace.
    $('.location').text(mImages[mCurrentIndex].location);
    $('.description').text(mImages[mCurrentIndex].description);
    $('.date').text(mImages[mCurrentIndex].date);
@@ -114,11 +116,17 @@ $(document).ready( function() {
  //button clickable
   $('.moreIndicator').click(function(){    
      $('.moreIndicator').toggleClass('rot90 rot270');
-    $('.details').fadeToggle(500);
-    
-      
-  })
-  
+     $('.details').fadeToggle(100);})
+  // next photo
+ 
+ 
+  $('#nextPhoto').click(function(){ 
+   if(mCurrentIndex == mImages.length){
+   mCurrentIndex = 0;
+   } 
+   swapPhoto(); 
+   });
+ 
  
  
 	
