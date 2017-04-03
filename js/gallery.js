@@ -44,7 +44,7 @@ function getQueryParams(qs) {
     return params; 
 } 
 var $_GET = getQueryParams(document.location.search);
-console.log($_GET["json"]); // would output "John"
+console.log($_GET["fname"]); // would output "John"
 // next
 
 var mURL = "images.json"; 
@@ -72,11 +72,18 @@ mRequest.open("GET",mURL, true);
 mRequest.send();
 //--------------------------------------------------------------------------------
 function swapPhoto() {
+  //login for click goes in directions
 	//Add code here to access the #slideShow element.
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded 
 	//from the JSON string
+  
 	console.log('swap photo');
+   $('#photo').attr("src",mImages[mCurrentIndex].imgPath);
+   $('.location').text(mImages[mCurrentIndex].location);
+   $('.description').text(mImages[mCurrentIndex].description);
+   $('.date').text(mImages[mCurrentIndex].date);
+   mCurrentIndex ++;
 }
 
 // Counter for the mImages array
@@ -106,10 +113,14 @@ $(document).ready( function() {
 	$('.details').eq(0).hide();
  //button clickable
   $('.moreIndicator').click(function(){    
-    	$('.details').toggle();    
-     $(this).removeClass("rot90");
-      $(this).addClass("rot270");
+     $('.moreIndicator').toggleClass('rot90 rot270');
+    $('.details').fadeToggle(500);
+    
+      
   })
+  
+ 
+ 
 	
 });
 
@@ -120,14 +131,10 @@ window.addEventListener('load', function() {
 }, false);
 
 
-function GalleryImage(location,description,date,srcUrl) {
+function GalleryImage(location,description,date,imgPath) {
   this.location = location;
   this.description = description;
   this.date = date;
-  this.src  = srcUrl;
-	//implement me as an object to hold the following data about an image:
-	//1. location where photo was taken
-	//2. description of photo
-	//3. the date when the photo was taken
-	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
+  this.imgPath  = imgPath;
+
 }
