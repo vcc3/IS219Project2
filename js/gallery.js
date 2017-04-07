@@ -58,14 +58,17 @@ function getQueryParams(qs) {
       return params;
 
 }
-// setting the $_GET as th edefualt of images if it cant find another json file or it doesnt open up.
+// setting the $_GET as the defualt of images if it cant find another json file or it doesnt open up.
+// that means that getQuery is responsible for looking at the input and determing  the json asked.
 var $_GET = getQueryParams(document.location.search);
-console.log($_GET['mUrl']);
-if($_GET['mUrl'] == "undefined" || $_GET['mUrl'] == null){
-  $_GET['mUrl'] = "images.json";
+console.log($_GET['json']);
+//look at the var $_GET and see if the getQuery params assigned it anything, if it has set the $_GET['mUrl'] as image.json
+// the [] has to be whats being wirtten in the url address bar. so if the query is index.html?json=extra.json,  then i need to have the var called json here.
+if($_GET['json' ] == "undefined" || $_GET['json'] == null){
+  $_GET['json'] = "images.json";
 }
 // mUrl vlaue set
-var mUrl = $_GET['mUrl'];
+var mUrl = $_GET['json'];
 // counter now set to -1 so starts at 0 becuase counter ++ sets it back to 0
 var mCurrentIndex = -1;
 // already added from the file
@@ -103,6 +106,7 @@ $(document).ready( function() {
     }
     // calling  here does the mCounterIndex ++
     swapPhoto();
+    //reset the clock
     mLastFrameTime = 0;
   });
   // have to start back here from -2  instead of -1this way itll go back correctly becuase it checks ot see if its at position 0 if not then then itlll be lenght . current.  the ++then moves it back
@@ -115,6 +119,7 @@ $(document).ready( function() {
     }
     //calls ++ again and checks to see what psoition we are on right now
     swapPhoto();
+    //reset clock
     mLastFrameTime = 0;
   });
 
