@@ -1,0 +1,34 @@
+{
+    "images": [
+        {
+            "imgPath": "img/extra/billiards.jpg",
+            "imgLocation": "Victor Hard Drive",
+            "description": "Neon Billiards Balls",
+            "date": "04/04/2017"
+        },
+        {
+            "imgPath": "img/extra/ifrit.jpg",
+            "imgLocation": "Victor Hard Drive",
+            "description": "Lord Ifrit from Final Fantasy Franchise",
+            "date": "04/04/2017"
+        },
+        {
+            "imgPath": "img/extra/skull.jpg",
+            "imgLocation": "Victor Hard Drive",
+            "description": "A cooler version of Ghost Rider",
+            "date": "04/04/2017"
+        },
+        {
+            "imgPath": "img/extra/trio.jpg",
+            "imgLocation": "Victor Hard Drive",
+            "description": "Pokemon",
+            "date": "04/04/2017"
+        },
+        {
+            "imgPath": "img/extra/whisper.jpg",
+            "imgLocation": "Victor Hard Drive",
+            "description": "Random Art",
+            "date": "04/04/2017"
+        }
+  ]
+}
