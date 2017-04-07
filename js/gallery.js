@@ -113,7 +113,7 @@ $(document).ready( function() {
     else{
       mCurrentIndex-=2;
     }
-    //calls ++ againa nd checks to see what psoition we are on right now
+    //calls ++ again and checks to see what psoition we are on right now
     swapPhoto();
     mLastFrameTime = 0;
   });

@@ -40,6 +40,14 @@ body {
   margin: 0 auto;
   
 }
+.changeJson {
+	height: 50px;
+	width: 50px;
+	position: relative;
+	z-index: 3;
+	opacity: .8;
+` top: 20px;
+}
 
 
 .thumbnail {
