@@ -34,9 +34,10 @@ function animate() {
 // Swap Photo function
 function swapPhoto() {
   if(mCurrentIndex == mImages.length-1){
+  //start one back,  then the ++ adds back to 0  in this case.
     mCurrentIndex = -1;
   }
-  // incrment after it does a check and then display the  info
+  // incrment after it does a check and then display the  info add that -1 to 0
   mCurrentIndex++;
   $('#photo').attr('src', mImages[mCurrentIndex].imgPath);
   //assign the details to the text with text replace.
@@ -101,16 +102,16 @@ $(document).ready( function() {
 // set foward function. i had coutner set at -1 so here will be set at lenght -1.
 // when calling the swap photo it increments up again
   $('#nextPhoto').click(function(){
-    if(mCurrentIndex == mImages.length-1){
+    if(mCurrentIndex == mImages.length){
       mCurrentIndex = -1;
     }
-    // calling  here does the mCounterIndex ++
+   
     swapPhoto();
-    //reset the clock
-    mLastFrameTime = 0;
+    
   });
   // have to start back here from -2  instead of -1this way itll go back correctly becuase it checks ot see if its at position 0 if not then then itlll be lenght . current.  the ++then moves it back
   $('#prevPhoto').click(function(){
+  //check if we at 0
     if(mCurrentIndex == 0){
       mCurrentIndex = mImages.length-2;
     }
@@ -119,8 +120,7 @@ $(document).ready( function() {
     }
     //calls ++ again and checks to see what psoition we are on right now
     swapPhoto();
-    //reset clock
-    mLastFrameTime = 0;
+   
   });
 
 
@@ -139,7 +139,7 @@ function GalleryImage(location, description, date, imgPath) {
   this.date = date;
   this.imgPath = imgPath;
 }
-
+// powerpoint code
 function reqListener () {
   console.log(this.responseText);
 }
