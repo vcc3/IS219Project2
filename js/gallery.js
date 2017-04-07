@@ -16,7 +16,7 @@
 animate();
 
 var mLastFrameTime = 0;
-var mWaitTime = 2000; //time in ms
+var mWaitTime = 4000; //time in ms
 function animate() {
     requestAnimFrame( animate );
 	var currentTime = new Date().getTime();
@@ -30,8 +30,8 @@ function animate() {
 	}
 }
 
-/************* DO NOT TOUCH CODE ABOVE THIS LINE ********************************/
-//------------------------------------------------------
+/************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
+//part 4
 function getQueryParams(qs) { 
     qs = qs.split("+").join(" "); 
     var params = {}, 
@@ -42,13 +42,13 @@ function getQueryParams(qs) {
             = decodeURIComponent(tokens[2]); 
     } 
     return params; 
-}
+} 
 var $_GET = getQueryParams(document.location.search);
-if($_GET['mUrl'] == "undefined" || $_GET['mUrl'] == null){
-  $_GET['mUrl'] = "images.json";
-}
-//----------------------------------------------------- 
 
+// next
+
+var mURL = "extra.json"; 
+var mRequest = new XMLHttpRequest(); 
 mRequest.onreadystatechange = function() { 
 // Do something interesting if file is opened successfully 
 if (mRequest.readyState == 4 && mRequest.status == 200) {
@@ -70,35 +70,19 @@ try {
 }; 
 mRequest.open("GET",mURL, true); 
 mRequest.send();
-//-----------------------------------------------------
-//Function for JS object
-function GalleryImage(location,description,date,imgPath) {
-  this.location = location;
-  this.description = description;
-  this.date = date;
-  this.imgPath  = imgPath;
-
-}
-//-----------------------------------------------------
-//swap photo to change the slideshow via above code.
+//--------------------------------------------------------------------------------
 function swapPhoto() {
   
-	 console.log('swapped photo');
-   // show the 0 indexed photo 
-   $('#photo').attr("src",mImages[mCurrentIndex].imgPath);
-   //assign the details to the text with text replace.
-   $('.location').text(mImages[mCurrentIndex].location);
-   $('.description').text(mImages[mCurrentIndex].description);
-   $('.date').text(mImages[mCurrentIndex].date);
-   mCurrentIndex ++;
+	console.log('swapped photo');
+  mCurrentIndex ++;
+  // show th e 0 indexed photo austrilia
+  $('#photo').attr('src',mImages[mCurrentIndex].imgPath);
+  //assign the details to the text with text replace.
+  $('.location').text(mImages[mCurrentIndex].location);
+  $('.description').text(mImages[mCurrentIndex].description);
+  $('.date').text(mImages[mCurrentIndex].date);
+   
 }
-//-----------------------------------------------------
-//for choosing which file ill use either images or extra
-var mURL = $_GET['mUrl']; 
-var mRequest = new XMLHttpRequest(); 
-
-//--------------------------------------------------------------------------------
-
 
 
 // Counter for the mImages array
@@ -151,3 +135,10 @@ window.addEventListener('load', function() {
 }, false);
 // setting the info form the json file to something the mImage can read and have ready
 
+function GalleryImage(location,description,date,imgPath) {
+  this.location = location;
+  this.description = description;
+  this.date = date;
+  this.imgPath  = imgPath;
+
+}
